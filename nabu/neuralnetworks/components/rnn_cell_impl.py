@@ -112,9 +112,9 @@ class RNNCell(base_layer.Layer):
       trainable = variable._trainable  # pylint: disable=protected-access
     else:
       trainable = (
-          variable in tf_variables.trainable_variables() or
-          (isinstance(variable, tf_variables.PartitionedVariable) and
-           list(variable)[0] in tf_variables.trainable_variables()))
+              variable in tf_variables.trainable_variables() or
+              (isinstance(variable, tf_variables.PartitionedVariable) and
+               list(variable)[0] in tf_variables.trainable_variables()))
     if trainable and variable not in self._trainable_weights:
       self._trainable_weights.append(variable)
     elif not trainable and variable not in self._non_trainable_weights:
@@ -159,8 +159,8 @@ class RNNCell(base_layer.Layer):
       (last_state_size, last_batch_size, last_dtype,
        last_output) = getattr(self, "_last_zero_state")
       if (last_batch_size == batch_size and
-          last_dtype == dtype and
-          last_state_size == state_size):
+              last_dtype == dtype and
+              last_state_size == state_size):
         return last_output
     with ops.name_scope(type(self).__name__ + "ZeroState", values=[batch_size]):
       output = rnn_cell_impl._zero_state_tensors(state_size, batch_size, dtype)

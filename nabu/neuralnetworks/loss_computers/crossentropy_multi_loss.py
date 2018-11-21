@@ -23,10 +23,10 @@ class CrossEntropyMultiLoss(loss_computer.LossComputer):
             loss: a scalar value containing the loss
             norm: a scalar value indicating how to normalize the loss
         '''
-                       
-	spkids=targets['spkids']        
-	logits = logits['spkest']
-		    
-	loss, norm = ops.crossentropy_multi_loss(spkids, logits, self.batch_size)
-            
+
+        spkids=targets['spkids']
+        logits = logits['spkest']
+
+        loss, norm = ops.crossentropy_multi_loss(spkids, logits, self.batch_size)
+
         return loss, norm

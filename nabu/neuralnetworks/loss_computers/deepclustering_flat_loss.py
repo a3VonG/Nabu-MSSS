@@ -6,10 +6,10 @@ import loss_computer
 from nabu.neuralnetworks.components import ops
 
 class DeepclusteringFlatLoss(loss_computer.LossComputer):
-    '''A loss computer that calculates the loss'''
+	'''A loss computer that calculates the loss'''
 
-    def __call__(self, targets, logits, seq_length):
-        '''
+	def __call__(self, targets, logits, seq_length):
+		'''
         Compute the loss
 
         Creates the operation to compute the deep clustering loss. Same as deepclustering_loss,
@@ -27,13 +27,13 @@ class DeepclusteringFlatLoss(loss_computer.LossComputer):
             loss: a scalar value containing the loss
             norm: a scalar value indicating how to normalize the loss
         '''
-                       
-	binary_target=targets['binary_targets']            
-	usedbins = targets['usedbins']
-	seq_length = seq_length['bin_emb']
-	logits = logits['bin_emb']
-		    
-	loss, norm = ops.deepclustering_flat_loss(binary_target, logits, usedbins, 
-					seq_length,self.batch_size)
-            
-        return loss, norm
+
+		binary_target=targets['binary_targets']
+		usedbins = targets['usedbins']
+		seq_length = seq_length['bin_emb']
+		logits = logits['bin_emb']
+
+		loss, norm = ops.deepclustering_flat_loss(binary_target, logits, usedbins,
+												  seq_length,self.batch_size)
+
+		return loss, norm

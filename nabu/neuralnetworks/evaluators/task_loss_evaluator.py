@@ -22,7 +22,7 @@ class TaskLossEvaluator(task_evaluator.TaskEvaluator):
 
         super(TaskLossEvaluator, self).__init__(conf, dataconf, models, task)
         self.loss_computer = loss_computer_factory.factory(
-		conf.get(task,'loss_type'))(self.batch_size)
+            conf.get(task,'loss_type'))(self.batch_size)
 
 
     def _get_outputs(self, inputs, seq_lengths):
@@ -38,15 +38,15 @@ class TaskLossEvaluator(task_evaluator.TaskEvaluator):
             the logits'''
 
         with tf.name_scope('evaluate_logits'):
-	    logits = run_multi_model.run_multi_model(
-		models=self.models,
-		model_nodes=self.model_nodes, 
-		model_links=self.model_links, 
-		inputs=inputs, 
-		inputs_links=self.inputs_links,
-		output_names=self.output_names, 
-		seq_lengths=seq_lengths,
-		is_training=False)
+            logits = run_multi_model.run_multi_model(
+                models=self.models,
+                model_nodes=self.model_nodes,
+                model_links=self.model_links,
+                inputs=inputs,
+                inputs_links=self.inputs_links,
+                output_names=self.output_names,
+                seq_lengths=seq_lengths,
+                is_training=False)
 
         return logits
 
@@ -67,5 +67,5 @@ class TaskLossEvaluator(task_evaluator.TaskEvaluator):
 
         with tf.name_scope('evaluate_loss'):
             loss, norm = self.loss_computer(targets, logits, seq_length)
-            
+
         return loss, norm

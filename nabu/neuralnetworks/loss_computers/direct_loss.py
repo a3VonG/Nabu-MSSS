@@ -6,10 +6,10 @@ import loss_computer
 from nabu.neuralnetworks.components import ops
 
 class DirectLoss(loss_computer.LossComputer):
-    '''A loss computer that calculates the loss'''
+	'''A loss computer that calculates the loss'''
 
-    def __call__(self, targets, logits, seq_length):
-        '''
+	def __call__(self, targets, logits, seq_length):
+		'''
         Compute the loss
 
         Creates the operation to compute the Permudation Invariant Training loss
@@ -25,13 +25,13 @@ class DirectLoss(loss_computer.LossComputer):
             loss: a scalar value containing the loss
             norm: a scalar value indicating how to normalize the loss
         '''
-                       
-	multi_targets=targets['multi_targets']            
-	mix_to_mask = targets['mix_to_mask']
-	seq_length = seq_length['bin_est']
-	logits = logits['bin_est']
-		    
-	loss, norm = ops.direct_loss(multi_targets, logits, mix_to_mask, 
-					seq_length,self.batch_size)
-            
-        return loss, norm
+
+		multi_targets=targets['multi_targets']
+		mix_to_mask = targets['mix_to_mask']
+		seq_length = seq_length['bin_est']
+		logits = logits['bin_est']
+
+		loss, norm = ops.direct_loss(multi_targets, logits, mix_to_mask,
+									 seq_length,self.batch_size)
+
+		return loss, norm

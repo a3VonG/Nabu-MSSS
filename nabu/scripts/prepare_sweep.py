@@ -21,11 +21,11 @@ def main(sweep, command, expdir, recipe, computing,resume, duplicates):
         os.makedirs(expdir)
 
     for i, expname in enumerate(expnames):
-	#copy the recipe dir to the expdir
-	if os.path.isdir(os.path.join(expdir, 'recipes',expname)):
-	    shutil.rmtree(os.path.join(expdir, 'recipes',expname))
-	shutil.copytree(recipe, os.path.join(expdir, 'recipes',expname))
-	
+        #copy the recipe dir to the expdir
+        if os.path.isdir(os.path.join(expdir, 'recipes',expname)):
+            shutil.rmtree(os.path.join(expdir, 'recipes',expname))
+        shutil.copytree(recipe, os.path.join(expdir, 'recipes',expname))
+
         for param in params[i]:
             #read the config
             conf = configparser.ConfigParser()
@@ -38,44 +38,44 @@ def main(sweep, command, expdir, recipe, computing,resume, duplicates):
 
         #run the new recipe
         if int(duplicates)==1:
-	    os.system('run %s --expdir=%s --recipe=%s --computing=%s' 
-	       ' --resume=%s --sweep_flag=%s' % (
-		command,
-		os.path.join(expdir, expname),
-		os.path.join(expdir, 'recipes',expname),
-		computing,
-		resume,
-		True
-	    ))
-	else:
-	    os.system('run %s --expdir=%s --recipe=%s --computing=%s' 
-	       ' --resume=%s --duplicates=%s --sweep_flag=%s' % (
-		command,
-		os.path.join(expdir, expname),
-		os.path.join(expdir, 'recipes',expname),
-		computing,
-		resume,
-		duplicates,
-		True
-	    ))
+            os.system('run %s --expdir=%s --recipe=%s --computing=%s'
+                      ' --resume=%s --sweep_flag=%s' % (
+                          command,
+                          os.path.join(expdir, expname),
+                          os.path.join(expdir, 'recipes',expname),
+                          computing,
+                          resume,
+                          True
+                      ))
+        else:
+            os.system('run %s --expdir=%s --recipe=%s --computing=%s'
+                      ' --resume=%s --duplicates=%s --sweep_flag=%s' % (
+                          command,
+                          os.path.join(expdir, expname),
+                          os.path.join(expdir, 'recipes',expname),
+                          computing,
+                          resume,
+                          duplicates,
+                          True
+                      ))
 
 if __name__ == '__main__':
     tf.app.flags.DEFINE_string('expdir', None,
                                'the exeriments directory'
-                              )
+                               )
     tf.app.flags.DEFINE_string('recipe', None,
                                'The directory containing the recipe'
-                              )
+                               )
     tf.app.flags.DEFINE_string('computing', 'standard',
                                'the distributed computing system one of'
                                ' standart or condor'
-                              )
+                               )
     tf.app.flags.DEFINE_string('sweep', 'sweep',
                                'the file containing the sweep parameters'
-                              )
+                               )
     tf.app.flags.DEFINE_string('command', 'train',
                                'the command to run'
-                              )
+                               )
     tf.app.flags.DEFINE_string('resume', 'False',
                                'wether the experiment in expdir, if available, '
                                'has to be resumed'

@@ -480,7 +480,7 @@ def bss_eval_images(reference_sources, estimated_sources,
     # If empty matrices were supplied, return empty lists (special case)
     if reference_sources.size == 0 or estimated_sources.size == 0:
         return np.array([]), np.array([]), np.array([]), \
-                         np.array([]), np.array([])
+               np.array([]), np.array([])
 
     # determine size parameters
     nsrc = estimated_sources.shape[0]
@@ -508,7 +508,7 @@ def bss_eval_images(reference_sources, estimated_sources,
                         512
                     )
                 sdr[jest, jtrue], isr[jest, jtrue], \
-                    sir[jest, jtrue], sar[jest, jtrue] = \
+                sir[jest, jtrue], sar[jest, jtrue] = \
                     _bss_image_crit(s_true, e_spat, e_interf, e_artif)
 
         # select the best ordering

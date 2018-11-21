@@ -2,8 +2,8 @@
 contains the Reconstructor factory'''
 
 from . import  deepclustering_reconstructor, stackedmasks_reconstructor, \
-deepXclustering_reconstructor, pit_l41_reconstructor, \
-parallel_deepclustering_reconstructor
+    deepXclustering_reconstructor, pit_l41_reconstructor, \
+    parallel_deepclustering_reconstructor
 
 def factory(reconstructor):
     '''
@@ -19,9 +19,9 @@ def factory(reconstructor):
     if reconstructor == 'deepclustering' or reconstructor == 'deepclustering_flat':
         return deepclustering_reconstructor.DeepclusteringReconstructor
     elif reconstructor == 'deepXclustering':
-        return deepXclustering_reconstructor.DeepXclusteringReconstructor  
+        return deepXclustering_reconstructor.DeepXclusteringReconstructor
     elif reconstructor == 'stackedmasks':
-        return stackedmasks_reconstructor.StackedmasksReconstructor 
+        return stackedmasks_reconstructor.StackedmasksReconstructor
     elif reconstructor == 'pit_l41':
         return pit_l41_reconstructor.PITL41Reconstructor
     elif reconstructor == 'parallel_deepclustering':

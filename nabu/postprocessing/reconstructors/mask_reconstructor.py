@@ -22,14 +22,14 @@ class MaskReconstructor(reconstructor.Reconstructor):
             dataconf: the database configuration
             rec_dir: the directory where the reconstructions will be stored
         '''
-        
+
         super(MaskReconstructor, self).__init__(conf, evalconf, dataconf, rec_dir, task)
-        
+
         #get the original mixtures reader 
         org_mix_names = conf['org_mix'].split(' ')
         org_mix_dataconfs=[]
         for org_mix_name in org_mix_names:
-	    org_mix_dataconfs.append(dict(dataconf.items(org_mix_name)))
+            org_mix_dataconfs.append(dict(dataconf.items(org_mix_name)))
         self.org_mix_reader = data_reader.DataReader(org_mix_dataconfs, self.segment_lengths)
 
 
@@ -42,31 +42,31 @@ class MaskReconstructor(reconstructor.Reconstructor):
         Returns:
             the reconstructed signals
             some info on the utterance'''
-            
+
         # get the original mixture
         mixture, utt_info= self.org_mix_reader(self.pos)
-            
+
         # get the masks    
         masks = self._get_masks(output, utt_info)
-                
+
         # apply the masks to obtain the reconstructed signals. Use the conf for feature
         #settings from the original mixture
-	for ind,start_index in enumerate(self.org_mix_reader.start_index_set):
-	    if start_index>self.pos:
-		processor=self.org_mix_reader.processors[ind-1]
-		comp_conf=processor.comp.conf
-		break
-		
+        for ind,start_index in enumerate(self.org_mix_reader.start_index_set):
+            if start_index>self.pos:
+                processor=self.org_mix_reader.processors[ind-1]
+                comp_conf=processor.comp.conf
+                break
+
         reconstructed_signals = list()
         for spk in range(self.nrS):
-	    spec_est = mixture * masks[spk,:,:]
-	    reconstructed_signals.append(base.spec2time(spec_est, utt_info['rate'], 
-						   utt_info['siglen'],
-						   comp_conf))
-        
+            spec_est = mixture * masks[spk,:,:]
+            reconstructed_signals.append(base.spec2time(spec_est, utt_info['rate'],
+                                                        utt_info['siglen'],
+                                                        comp_conf))
+
         return reconstructed_signals, utt_info
-        
-        
+
+
     @abstractmethod
     def _get_masks(self, output, utt_info):
         '''estimate the masks

@@ -7,14 +7,14 @@ import numpy as np
 import pdb
 
 class StackedmasksReconstructor(mask_reconstructor.MaskReconstructor):
-    '''the stacked masks reconstructor class
+	'''the stacked masks reconstructor class
 
     a reconstructor using that uses stacked masks'''
-    
-    requested_output_names = ['bin_est']
 
-    def __init__(self, conf, evalconf, dataconf, rec_dir, task):
-        '''StackedmasksReconstructor constructor
+	requested_output_names = ['bin_est']
+
+	def __init__(self, conf, evalconf, dataconf, rec_dir, task):
+		'''StackedmasksReconstructor constructor
 
         Args:
             conf: the reconstructor configuration as a dictionary
@@ -22,28 +22,28 @@ class StackedmasksReconstructor(mask_reconstructor.MaskReconstructor):
             dataconf: the database configuration
             rec_dir: the directory where the reconstructions will be stored
         '''
-        
-        super(StackedmasksReconstructor, self).__init__(conf, evalconf, dataconf, rec_dir, task)       
 
-    def _get_masks(self, output,utt_info):
-	'''get the masks by simply destacking the stacked masks into separate masks and
-	normalizing them with softmax
+		super(StackedmasksReconstructor, self).__init__(conf, evalconf, dataconf, rec_dir, task)
 
-	Args:
-	    output: the output of a single utterance of the neural network
-            utt_info: some info on the utterance
+	def _get_masks(self, output,utt_info):
+		'''get the masks by simply destacking the stacked masks into separate masks and
+        normalizing them with softmax
 
-	Returns:
-	    the estimated masks'''
-	    
-	[T,target_dim] = np.shape(output['bin_est'])
-	F = target_dim/self.nrS
-	
-	masks = np.reshape(output['bin_est'],[T,F,self.nrS],'F')
-	masks = np.transpose(masks,[2,0,1])
-	
-	#apply softmax
-	exp_masks = np.exp(masks)
-	masks = exp_masks / np.sum(exp_masks,axis=0)
-	
-	return masks
+        Args:
+            output: the output of a single utterance of the neural network
+                utt_info: some info on the utterance
+
+        Returns:
+            the estimated masks'''
+
+		[T,target_dim] = np.shape(output['bin_est'])
+		F = target_dim/self.nrS
+
+		masks = np.reshape(output['bin_est'],[T,F,self.nrS],'F')
+		masks = np.transpose(masks,[2,0,1])
+
+		#apply softmax
+		exp_masks = np.exp(masks)
+		masks = exp_masks / np.sum(exp_masks,axis=0)
+
+		return masks

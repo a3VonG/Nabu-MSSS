@@ -17,4 +17,4 @@ def factory(postprocessor):
     if postprocessor == 'ivector_extractor':
         return ivector_extractor_matlab.IvectorExtractor
     else:
-	raise Exception('Undefined postprocessor type: %s' % postprocessor)
+        raise Exception('Undefined postprocessor type: %s' % postprocessor)

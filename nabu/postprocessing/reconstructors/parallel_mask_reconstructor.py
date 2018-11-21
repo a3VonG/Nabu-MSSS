@@ -22,9 +22,9 @@ class ParallelMaskReconstructor(parallel_reconstructor.ParallelReconstructor):
             dataconf: the database configuration
             rec_dir: the directory where the reconstructions will be stored
         '''
-        
+
         super(ParallelMaskReconstructor, self).__init__(conf, evalconf, dataconf, rec_dir, task)
-        
+
         #get the original mixtures reader 
         org_mix_name = conf['org_mix']
         org_mix_dataconf = dict(dataconf.items(org_mix_name))
@@ -40,25 +40,25 @@ class ParallelMaskReconstructor(parallel_reconstructor.ParallelReconstructor):
         Returns:
             the reconstructed signals
             some info on the utterance'''
-            
+
         # get the original mixture
         mixture, utt_info= self.org_mix_reader(ind)
-            
+
         # get the masks    
         masks = self._get_masks(ind, output, utt_info)
-                
+
         # apply the masks to obtain the reconstructed signals. Use the conf for feature
         #settings from the original mixture
         reconstructed_signals = list()
         for spk in range(self.nrS):
-	    spec_est = mixture * masks[spk,:,:]
-	    reconstructed_signals.append(base.spec2time(spec_est, utt_info['rate'], 
-						   utt_info['siglen'],
-						   self.org_mix_reader.processor.comp.conf))
-        
+            spec_est = mixture * masks[spk,:,:]
+            reconstructed_signals.append(base.spec2time(spec_est, utt_info['rate'],
+                                                        utt_info['siglen'],
+                                                        self.org_mix_reader.processor.comp.conf))
+
         return reconstructed_signals, utt_info
-        
-        
+
+
     @abstractmethod
     def _get_masks(self, output, utt_info):
         '''estimate the masks

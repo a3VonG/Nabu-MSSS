@@ -24,7 +24,7 @@ class MultiTargetProcessor(processor.Processor):
 
         #create the feature computer
         self.comp = feature_computer_factory.factory(conf['feature'])(conf)
-        
+
         #set the length of the segments. Possibly multiple segment lengths
         self.segment_lengths = segment_lengths
 
@@ -32,7 +32,7 @@ class MultiTargetProcessor(processor.Processor):
         self.nrS = int(conf['nrs'])
         self.target_dim = self.comp.get_dim()
         self.nontime_dims=[self.target_dim,self.nrS]
-        
+
         super(MultiTargetProcessor, self).__init__(conf)
 
     def __call__(self, dataline):
@@ -44,30 +44,30 @@ class MultiTargetProcessor(processor.Processor):
         Returns:
             segmented_data: The segmented targets as a list of numpy arrays per segment length
             utt_info: some info on the utterance'''
-            
+
         utt_info= dict()
 
-	splitdatalines = dataline.strip().split(' ')
-	
-	targets = None
-	for splitdataline in splitdatalines:
-	    #read the wav file
-	    rate, utt = _read_wav(splitdataline)
+        splitdatalines = dataline.strip().split(' ')
 
-	    #compute the features
-	    features = self.comp(utt, rate)
-	    features = np.expand_dims(features, 2)
-	    
-	    if targets is None:
-		targets = features
-	    else:  
-		targets = np.append(targets,features,2)
-        
+        targets = None
+        for splitdataline in splitdatalines:
+            #read the wav file
+            rate, utt = _read_wav(splitdataline)
+
+            #compute the features
+            features = self.comp(utt, rate)
+            features = np.expand_dims(features, 2)
+
+            if targets is None:
+                targets = features
+            else:
+                targets = np.append(targets,features,2)
+
         # split the data for all desired segment lengths
-	segmented_data = self.segment_data(targets)
+        segmented_data = self.segment_data(targets)
 
         return segmented_data, utt_info
-      
+
 
     def write_metadata(self, datadir):
         '''write the processor metadata to disk
@@ -76,14 +76,14 @@ class MultiTargetProcessor(processor.Processor):
             dir: the directory where the metadata should be written'''
 
         for i,seg_length in enumerate(self.segment_lengths):
-	    seg_dir = os.path.join(datadir,seg_length)
-	    with open(os.path.join(seg_dir, 'nrS'), 'w') as fid:
-		fid.write(str(self.nrS))
-	    with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
-		fid.write(str(self.target_dim))
-	    with open(os.path.join(seg_dir, 'nontime_dims'), 'w') as fid:
-		fid.write(str(self.nontime_dims)[1:-1])
-            
+            seg_dir = os.path.join(datadir,seg_length)
+            with open(os.path.join(seg_dir, 'nrS'), 'w') as fid:
+                fid.write(str(self.nrS))
+            with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
+                fid.write(str(self.target_dim))
+            with open(os.path.join(seg_dir, 'nontime_dims'), 'w') as fid:
+                fid.write(str(self.nontime_dims)[1:-1])
+
 def _read_wav(wavfile):
     '''
     read a wav file

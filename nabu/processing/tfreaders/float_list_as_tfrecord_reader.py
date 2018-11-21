@@ -20,8 +20,8 @@ class FloatListAsTfrecordReader(tfreader.TfReader):
                 the metadata as a dictionary
         '''
 
-	metadata = dict()
-	
+        metadata = dict()
+
         with open(os.path.join(datadirs[0], 'dim')) as fid:
             metadata['dim'] = int(fid.read())
         for datadir in datadirs:

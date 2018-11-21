@@ -18,7 +18,7 @@ class FloatListAsTfrecordWriter(tfwriter.TfWriter):
             value=[np.array(np.array(data).astype(np.int32).shape).tostring()]))
         data_feature = tf.train.Feature(bytes_list=tf.train.BytesList(
             value=[np.array(data).astype(np.float32).tostring()]))
-	
+
 
         #create the example proto
         example = tf.train.Example(features=tf.train.Features(feature={

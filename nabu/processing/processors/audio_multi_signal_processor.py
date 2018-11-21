@@ -25,12 +25,12 @@ class AudioMultiSignalProcessor(processor.Processor):
         self.comp = feature_computer_factory.factory(conf['feature'])(conf)
 
         #set the length of the segments. Possibly multiple segment lengths
-        self.segment_lengths = segment_lengths 
+        self.segment_lengths = segment_lengths
 
         #initialize the metadata
         self.dim = self.comp.get_dim()
 
-        
+
         super(AudioMultiSignalProcessor, self).__init__(conf)
 
     def __call__(self, dataline):
@@ -45,29 +45,29 @@ class AudioMultiSignalProcessor(processor.Processor):
         Returns:
             segmented_data: The multiple audio signals as list of numpy arrays per signal per segment length
             utt_info: some info on the utterance'''
-            
+
         utt_info= dict()
 
-	splitdatalines = dataline.strip().split(' ')
-	
-	multi_signal = list()
-	for splitdataline in splitdatalines:
-	    #read the wav file
-	    rate, utt = _read_wav(splitdataline)
+        splitdatalines = dataline.strip().split(' ')
 
-	    #compute the features
-	    features = self.comp(utt, rate)
-	
-	    multi_signal.append(features)
-	    
-	# split the data for all desired segment lengths
-	segmented_data = self.segment_data(multi_signal)
+        multi_signal = list()
+        for splitdataline in splitdatalines:
+            #read the wav file
+            rate, utt = _read_wav(splitdataline)
 
-	utt_info['rate'] = rate
-	utt_info['nrSig'] = len(splitdatalines)
-	
+            #compute the features
+            features = self.comp(utt, rate)
+
+            multi_signal.append(features)
+
+        # split the data for all desired segment lengths
+        segmented_data = self.segment_data(multi_signal)
+
+        utt_info['rate'] = rate
+        utt_info['nrSig'] = len(splitdatalines)
+
         return segmented_data, utt_info
-      
+
 
     def write_metadata(self, datadir):
         '''write the processor metadata to disk
@@ -75,12 +75,12 @@ class AudioMultiSignalProcessor(processor.Processor):
         Args:
             dir: the directory where the metadata should be written'''
 
-	for i,seg_length in enumerate(self.segment_lengths):
-	    seg_dir = os.path.join(datadir,seg_length)
-            
-	    with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
-		fid.write(str(self.dim))
-            
+        for i,seg_length in enumerate(self.segment_lengths):
+            seg_dir = os.path.join(datadir,seg_length)
+
+            with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
+                fid.write(str(self.dim))
+
 def _read_wav(wavfile):
     '''
     read a wav file

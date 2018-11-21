@@ -23,10 +23,10 @@ def factory(feature):
     elif feature == 'logspec':
         return logspec.Logspec
     elif feature == 'magspec':
-	return magspec.Magspec
+        return magspec.Magspec
     elif feature == 'spec':
-	return spec.Spec
+        return spec.Spec
     elif feature == 'raw':
-	return raw.Raw
+        return raw.Raw
     else:
         raise Exception('Undefined feature type: %s' % feature)

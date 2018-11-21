@@ -23,12 +23,12 @@ class NumpyBoolArrayAsTfrecordReader(tfreader.TfReader):
 
         ##read the dimension of the data
         #with open(os.path.join(datadirs[0], 'dim')) as fid:
-            #metadata['dim'] = int(fid.read())
+        #metadata['dim'] = int(fid.read())
         #for datadir in datadirs:
-            #with open(os.path.join(datadir, 'dim')) as fid:
-                #if metadata['dim'] != int(fid.read()):
-                    #raise Exception(
-                        #'all audio feature reader dimensions must be the same')
+        #with open(os.path.join(datadir, 'dim')) as fid:
+        #if metadata['dim'] != int(fid.read()):
+        #raise Exception(
+        #'all audio feature reader dimensions must be the same')
 
         #read the non-time dimensions of the data
         with open(os.path.join(datadirs[0], 'nontime_dims')) as fid:
@@ -36,8 +36,8 @@ class NumpyBoolArrayAsTfrecordReader(tfreader.TfReader):
             metadata['nontime_dims'] = map(int,metadata['nontime_dims'])
         for datadir in datadirs:
             with open(os.path.join(datadir, 'nontime_dims')) as fid:
-		nontime_dims=fid.read().strip().split(',')
-		nontime_dims=map(int,nontime_dims)
+                nontime_dims=fid.read().strip().split(',')
+                nontime_dims=map(int,nontime_dims)
                 if metadata['nontime_dims'] != nontime_dims:
                     raise Exception(
                         'all reader dimensions must be the same')

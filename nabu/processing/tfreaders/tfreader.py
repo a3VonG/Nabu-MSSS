@@ -44,10 +44,10 @@ class TfReader(object):
 
             #parse the serialized strings into features
             features = tf.parse_single_example(serialized, self.features)
-            
+
             #data_name = tf.parse_single_example(data_name_serialized,{'data_name': tf.VarLenFeature(dtype=tf.string)})
-	    #data_name = data_name['data_name']
-	    
+            #data_name = data_name['data_name']
+
             #process the parsed features
             processed = self._process_features(features)
 

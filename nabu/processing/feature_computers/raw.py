@@ -24,7 +24,7 @@ class Raw(feature_computer.FeatureComputer):
         #snip the edges
         sig = snip(sig, rate, float(self.conf['winlen']),
                    float(self.conf['winstep']))
-	
+
         feat = base.raw(sig)
 
         return feat

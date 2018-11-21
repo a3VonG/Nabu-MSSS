@@ -24,7 +24,7 @@ class onehotperfeatureTargetDummyProcessor(processor.Processor):
 
         #create the feature computer
         self.comp = feature_computer_factory.factory(conf['feature'])(conf)
-        
+
         #set the length of the segments. Possibly multiple segment lengths
         self.segment_lengths = segment_lengths
 
@@ -32,7 +32,7 @@ class onehotperfeatureTargetDummyProcessor(processor.Processor):
         self.nrS = int(conf['nrs'])
         self.dim = self.comp.get_dim() * self.nrS
         self.nontime_dims=[self.dim]
-        
+
         super(onehotperfeatureTargetDummyProcessor, self).__init__(conf)
 
     def __call__(self, dataline):
@@ -44,29 +44,29 @@ class onehotperfeatureTargetDummyProcessor(processor.Processor):
         Returns:
             segmented_data: The segmented targets as a list of numpy arrays per segment length
             utt_info: some info on the utterance'''
-            
+
         utt_info= dict()
-        
+
         rate, utt = _read_wav(dataline)
         #compute the features
-	features = self.comp(utt, rate)
-	features = np.expand_dims(features, 2)
+        features = self.comp(utt, rate)
+        features = np.expand_dims(features, 2)
         clean_features = features
         for spk_ind in range(1,self.nrS):
-	    features_spk=features+np.random.randn(np.shape(features)[0],np.shape(features)[1],np.shape(features)[2])
-	    clean_features = np.append(clean_features,features_spk,2)
+            features_spk=features+np.random.randn(np.shape(features)[0],np.shape(features)[1],np.shape(features)[2])
+            clean_features = np.append(clean_features,features_spk,2)
 
-	    
-	winner=np.argmax(clean_features,axis=2)
-	targets=np.empty([features.shape[0],self.dim],dtype=bool)
-	for s_ind in range(self.nrS):
-	    targets[:,s_ind::self.nrS]=winner==s_ind
-        
+
+        winner=np.argmax(clean_features,axis=2)
+        targets=np.empty([features.shape[0],self.dim],dtype=bool)
+        for s_ind in range(self.nrS):
+            targets[:,s_ind::self.nrS]=winner==s_ind
+
         # split the data for all desired segment lengths
-	segmented_data = self.segment_data(targets)
+        segmented_data = self.segment_data(targets)
 
         return segmented_data, utt_info
-      
+
 
     def write_metadata(self, datadir):
         '''write the processor metadata to disk
@@ -75,14 +75,14 @@ class onehotperfeatureTargetDummyProcessor(processor.Processor):
             dir: the directory where the metadata should be written'''
 
         for i,seg_length in enumerate(self.segment_lengths):
-	    seg_dir = os.path.join(datadir,seg_length)
-	    with open(os.path.join(seg_dir, 'nrS'), 'w') as fid:
-		fid.write(str(self.nrS))
-	    with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
-		fid.write(str(self.dim))
-	    with open(os.path.join(seg_dir, 'nontime_dims'), 'w') as fid:
-		fid.write(str(self.nontime_dims)[1:-1])
-            
+            seg_dir = os.path.join(datadir,seg_length)
+            with open(os.path.join(seg_dir, 'nrS'), 'w') as fid:
+                fid.write(str(self.nrS))
+            with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
+                fid.write(str(self.dim))
+            with open(os.path.join(seg_dir, 'nontime_dims'), 'w') as fid:
+                fid.write(str(self.nontime_dims)[1:-1])
+
 def _read_wav(wavfile):
     '''
     read a wav file

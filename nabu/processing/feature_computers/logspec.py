@@ -28,7 +28,7 @@ class Logspec(feature_computer.FeatureComputer):
         feat = base.logspec(sig, rate, self.conf)
 
         if self.conf['include_energy'] == 'True':
-	    _, energy = base.fbank(sig, rate, self.conf)
+            _, energy = base.fbank(sig, rate, self.conf)
             feat = np.append(feat, energy[:, np.newaxis], 1)
 
         return feat

@@ -25,16 +25,16 @@ class ScorelabelperfeatureProcessor(processor.Processor):
 
         #create the feature computer
         self.comp = feature_computer_factory.factory(conf['feature'])(conf)
-        
+
         self.mag_thres = float(conf['mag_thres'])
-        
+
         #set the length of the segments. Possibly multiple segment lengths
         self.segment_lengths = segment_lengths
 
         #initialize the metadata
         self.dim = self.comp.get_dim()
         self.nontime_dims=[self.dim]
-        
+
         super(ScorelabelperfeatureProcessor, self).__init__(conf)
 
     def __call__(self, dataline):
@@ -46,7 +46,7 @@ class ScorelabelperfeatureProcessor(processor.Processor):
         Returns:
             segmented_data: The segmented info on bins to be used for scoring as a list of numpy arrays per segment length
             utt_info: some info on the utterance'''
-            
+
         utt_info= dict()
 
         #read the wav file
@@ -54,32 +54,32 @@ class ScorelabelperfeatureProcessor(processor.Processor):
 
         #compute the features
         features = self.comp(utt, rate)
-        
+
         #compute the floor
         maxbin = np.max(features)
-	floor=maxbin/self.mag_thres
-	    
-	#apply floor to get the used bins
-	usedbins=np.greater(features,floor)
-        
+        floor=maxbin/self.mag_thres
+
+        #apply floor to get the used bins
+        usedbins=np.greater(features,floor)
+
         # split the data for all desired segment lengths
-	segmented_data = self.segment_data(usedbins)
+        segmented_data = self.segment_data(usedbins)
 
         return segmented_data, utt_info
-      
+
 
     def write_metadata(self, datadir):
         '''write the processor metadata to disk
 
         Args:
             dir: the directory where the metadata should be written'''
-            
+
         for i,seg_length in enumerate(self.segment_lengths):
-	    seg_dir = os.path.join(datadir,seg_length)    
-	    with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
-		fid.write(str(self.dim))
-	    with open(os.path.join(seg_dir, 'nontime_dims'), 'w') as fid:
-		fid.write(str(self.nontime_dims)[1:-1])
+            seg_dir = os.path.join(datadir,seg_length)
+            with open(os.path.join(seg_dir, 'dim'), 'w') as fid:
+                fid.write(str(self.dim))
+            with open(os.path.join(seg_dir, 'nontime_dims'), 'w') as fid:
+                fid.write(str(self.nontime_dims)[1:-1])
 
 def _read_wav(wavfile):
     '''

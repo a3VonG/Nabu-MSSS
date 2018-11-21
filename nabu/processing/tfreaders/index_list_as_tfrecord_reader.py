@@ -19,8 +19,8 @@ class IndexListAsTfrecordReader(tfreader.TfReader):
             Returns:
                 the metadata as a dictionary
         '''
-	metadata=dict()            
-	
+        metadata=dict()
+
         with open(os.path.join(datadirs[0], 'nrS')) as fid:
             metadata['nrS'] = int(fid.read().strip())
         for datadir in datadirs:

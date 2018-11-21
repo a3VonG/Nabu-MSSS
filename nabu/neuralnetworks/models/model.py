@@ -7,16 +7,16 @@ import pdb
 class Model(object):
     '''a general class for a deep learning model'''
     __metaclass__ = ABCMeta
-    
+
     def __init__(self, conf, name=None):
         '''Model constructor
 
         Args:
             conf: The model configuration as a configparser object
         '''
-        
+
         self.conf = conf
-        
+
         self.scope = tf.VariableScope(False, name or type(self).__name__)
 
 
@@ -48,8 +48,8 @@ class Model(object):
             input_seq_length=input_seq_length,
             is_training=is_training)
 
-	self.scope.reuse_variables()
-	
+        self.scope.reuse_variables()
+
         return logits
 
     @property

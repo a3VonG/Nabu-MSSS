@@ -6,10 +6,10 @@ import model
 from nabu.neuralnetworks.components import layer
 
 class LeakyDBLSTMIZNotRec(model.Model):
-    '''A deep bidirectional LSTM classifier with memory leakage'''
+	'''A deep bidirectional LSTM classifier with memory leakage'''
 
-    def  _get_outputs(self, inputs, input_seq_length, is_training):
-        '''
+	def  _get_outputs(self, inputs, input_seq_length, is_training):
+		'''
         Create the variables and do the forward computation
 
         Args:
@@ -23,35 +23,35 @@ class LeakyDBLSTMIZNotRec(model.Model):
             - output, which is a [batch_size x time x ...] tensors
         '''
 
-        #the blstm layer
-        blstm = layer.LeakyBLSTMIZNotRecLayer(
-            num_units=int(self.conf['num_units']),
-            layer_norm=self.conf['layer_norm'] == 'True',
-            recurrent_dropout=float(self.conf['recurrent_dropout']),
-            leak_factor=float(self.conf['leak_factor']))
-	
-	#code not available for multiple inputs!!
-	if len(inputs) > 1:
-	    raise 'The implementation of DBLSTM expects 1 input and not %d' %len(inputs)
-	else:
-	    inputs=inputs[0]
-	    
-	with tf.variable_scope(self.scope):
-	    if is_training and float(self.conf['input_noise']) > 0:
-		inputs = inputs + tf.random_normal(
-		    tf.shape(inputs),
-		    stddev=float(self.conf['input_noise']))
-		    
-	    logits = inputs
-	    
-	    for l in range(int(self.conf['num_layers'])):
-		logits = blstm(logits, input_seq_length,
-			      'layer' + str(l))
+		#the blstm layer
+		blstm = layer.LeakyBLSTMIZNotRecLayer(
+			num_units=int(self.conf['num_units']),
+			layer_norm=self.conf['layer_norm'] == 'True',
+			recurrent_dropout=float(self.conf['recurrent_dropout']),
+			leak_factor=float(self.conf['leak_factor']))
 
-	    if is_training and float(self.conf['dropout']) < 1:
-		logits = tf.nn.dropout(logits, float(self.conf['dropout']))
-		
-	    output = logits
+		#code not available for multiple inputs!!
+		if len(inputs) > 1:
+			raise 'The implementation of DBLSTM expects 1 input and not %d' %len(inputs)
+		else:
+			inputs=inputs[0]
+
+		with tf.variable_scope(self.scope):
+			if is_training and float(self.conf['input_noise']) > 0:
+				inputs = inputs + tf.random_normal(
+					tf.shape(inputs),
+					stddev=float(self.conf['input_noise']))
+
+			logits = inputs
+
+			for l in range(int(self.conf['num_layers'])):
+				logits = blstm(logits, input_seq_length,
+							   'layer' + str(l))
+
+			if is_training and float(self.conf['dropout']) < 1:
+				logits = tf.nn.dropout(logits, float(self.conf['dropout']))
+
+			output = logits
 
 
-        return output
+		return output

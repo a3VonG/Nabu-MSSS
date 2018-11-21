@@ -1,10 +1,10 @@
 '''@file model_factory.py
 contains the model factory'''
 
-from . import dblstm, plain_variables, linear, concat, leaky_dblstm,\
-  multi_averager, feedforward, leaky_dblstm_iznotrec, leaky_dblstm_notrec, dbrnn,\
-  capsnet, dbr_capsnet, dbgru, leaky_dbgru, dbresetlstm, dlstm, dresetlstm,\
-  leaky_dlstm, encoder_decoder_cnn
+from . import dblstm, plain_variables, linear, concat, leaky_dblstm, \
+    multi_averager, feedforward, leaky_dblstm_iznotrec, leaky_dblstm_notrec, dbrnn, \
+    capsnet, dbr_capsnet, dbgru, leaky_dbgru, dbresetlstm, dlstm, dresetlstm, \
+    leaky_dlstm, encoder_decoder_cnn
 
 def factory(architecture):
     '''get a model class

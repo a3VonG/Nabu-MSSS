@@ -96,7 +96,7 @@ def train(clusterfile,
 
 			#parameter server
 			if job_name == 'ps':
-				raise 'Parameter server is currently not implemented correctly'
+				raise Exception('Parameter server is currently not implemented correctly')
 			##create the parameter server
 			#ps = multi_task_trainer.ParameterServer(
 			#conf=segment_trainer_cfg,

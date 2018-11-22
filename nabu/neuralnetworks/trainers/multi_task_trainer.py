@@ -187,7 +187,9 @@ class MultiTaskTrainer():
 														 name='reset_grad_loss_norm_all_tasks')
 
 					tmp=[]
-					for task in self.task_trainers:
+					# should'nt this be task_trainer instead of task?
+					# for task in self.task_trainers:
+					for task_trainer in self.task_trainers:
 						tmp += task_trainer.normalize_gradients
 					self.normalize_gradients = tf.group(*(tmp),
 														name='normalize_gradients_all_tasks')

@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6697bd9e-b143-4156-b860-c392babfee6e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/base_processor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/database.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/feature_processor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/model.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/postprocessor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/rec_processor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/reconstructor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/score_processor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/scorer.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/sweep_file" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/target_processor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/target_processor_3spk.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/target_processor_4spk.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/test_evaluator.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/trainer.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/usedbins_processor.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/validation_evaluator.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nabu/neuralnetworks/trainers/multi_task_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/nabu/neuralnetworks/trainers/multi_task_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nabu/scripts/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/nabu/scripts/train.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/NabuCode$tester.coverage" NAME="tester Coverage Results" MODIFIED="1542902297875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1981889833">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cfg" value="17" />
+          <entry key="conf" value="3" />
+          <entry key="md" value="1" />
+          <entry key="py" value="183" />
+          <entry key="run" value="2" />
+          <entry key="sweep_file" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Bash" value="2" />
+          <entry key="Ini" value="3" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="18" />
+          <entry key="Python" value="183" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="203" />
+          <entry key="conf" value="54" />
+          <entry key="py" value="211" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="54" />
+          <entry key="Python" value="414" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tester.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#60#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/recipes/SS/BRCapsNet/MERL_DC_2spk_2lay_reconlyvote/database.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/-1150200401/1218911299/tensorflow/python/ops/rnn_cell_impl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2026" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell_impl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>model_cfg</find>
+      <find>num_replicas</find>
+      <find>fracbins_utt_act</find>
+      <find>has_kwargs</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/nabu/postprocessing/reconstructors/reconstructor_factory.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/reconstructors/stackedmasks_reconstructor.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/scorers/bss_eval.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/scorers/pesq_scorer.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/scorers/scorer.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/scorers/sdr_scorer.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/data_reader.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/feature_computers/base.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/feature_computers/feature_computer_factory.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/feature_computers/logspec.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/feature_computers/magspec.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/feature_computers/raw.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/feature_computers/sigproc.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/audio_feat_conc_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/audio_feat_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/audio_multi_signal_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/audio_signal_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/fracscorelabelperfeature_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/matrix2vector_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/multi_target_dummy_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/multi_target_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/onehotperfeature_target_dummy_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/onehotperfeature_target_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/processor_factory.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/scorelabelperfeature_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/scorelabelperfeatureinmixture_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/processors/strlabel2index_processor.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfreaders/float_list_as_tfrecord_reader.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfreaders/index_list_as_tfrecord_reader.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfreaders/numpy_bool_array_as_tfrecord_reader.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfreaders/numpy_float_array_as_tfrecord_reader.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfreaders/tfreader.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfreaders/tfreader_factory.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfwriters/__init__.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfwriters/float_list_as_tfrecord_writer.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfwriters/index_list_as_tfrecord_writer.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfwriters/numpy_bool_array_as_tfrecord_writer.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfwriters/numpy_float_array_as_tfrecord_writer.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/tfwriters/tfwriter_factory.py" />
+        <option value="$PROJECT_DIR$/nabu/processing/input_pipeline.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/reconstructors/parallel_reconstructor.py" />
+        <option value="$PROJECT_DIR$/nabu/postprocessing/reconstructors/reconstructor.py" />
+        <option value="$PROJECT_DIR$/nabu/scripts/train.py" />
+        <option value="$PROJECT_DIR$/nabu/neuralnetworks/trainers/multi_task_trainer.py" />
+        <option value="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/database.conf" />
+        <option value="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/scorer.cfg" />
+        <option value="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/reconstructor.cfg" />
+        <option value="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/test_evaluator.cfg" />
+        <option value="$PROJECT_DIR$/tester.py" />
+        <option value="$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell_impl.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="716" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NabuCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NabuCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NabuCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NabuCode" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NabuCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NabuCode" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="recipes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NabuCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NabuCode" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="recipes" type="462c0819:PsiDirectoryNode" />
+              <item name="SS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NabuCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NabuCode" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="recipes" type="462c0819:PsiDirectoryNode" />
+              <item name="SS" type="462c0819:PsiDirectoryNode" />
+              <item name="BRCapsNet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NabuCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NabuCode" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="recipes" type="462c0819:PsiDirectoryNode" />
+              <item name="SS" type="462c0819:PsiDirectoryNode" />
+              <item name="BRCapsNet" type="462c0819:PsiDirectoryNode" />
+              <item name="MERL_DC_2spk_2lay_reconlyvote" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="NabuCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tester" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NabuCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tester.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tester" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6697bd9e-b143-4156-b860-c392babfee6e" name="Default Changelist" comment="" />
+      <created>1542713301017</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1542713301017</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2846924" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5120482" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" order="9" weight="0.30240965" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32891566" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="13" visible="true" weight="0.32650602" />
+      <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.39638555" />
+      <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" side_tool="true" visible="true" weight="0.015021459" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/nabu/processing/tfwriters/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/tfwriters/float_list_as_tfrecord_writer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/tfwriters/index_list_as_tfrecord_writer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/tfwriters/numpy_bool_array_as_tfrecord_writer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/tfwriters/numpy_float_array_as_tfrecord_writer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/tfwriters/tfwriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/input_pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" column="14" selection-end-line="176" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/tfwriters/tfwriter_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/postprocessing/reconstructors/parallel_reconstructor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="77" column="47" lean-forward="true" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/postprocessing/reconstructors/reconstructor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/feature_computers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="62" lean-forward="true" selection-end-line="438" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/feature_computers/feature_computer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/processing/processors/matrix2vector_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/scripts/prepare_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/scripts/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/scripts/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="218" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/scripts/prepare_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/models/leaky_dblstm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/models/feedforward.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/-1150200401/1515844793/ConfigParser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138">
+          <caret line="522" column="3" selection-start-line="522" selection-start-column="3" selection-end-line="522" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/trainers/multi_task_trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="729" column="23" selection-start-line="729" selection-start-column="23" selection-end-line="729" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/trainers/task_trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="323" column="17" selection-start-line="323" selection-start-column="17" selection-end-line="323" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/models/model_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/scripts/prepare_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="148" column="13" lean-forward="true" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/scripts/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="113" column="36" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/trainers/trainer_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/computing/create_server.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/DBLSTM/MERL_DC_2spk/database.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/base_processor.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/database.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/database.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/feature_processor.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/model.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/postprocessor.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/rec_processor.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/reconstructor.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/score_processor.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/scorer.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/sweep_file">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/target_processor.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/target_processor_4spk.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/test_evaluator.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/trainer.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-553" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/usedbins_processor.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/FirstExperimentsRecipies/DBLSTM/MERL_DC_2spk/validation_evaluator.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell_impl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/-1150200401/1218911299/tensorflow/python/ops/rnn_cell_impl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2026" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nabu/neuralnetworks/components/rnn_cell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#60#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/recipes/SS/BRCapsNet/MERL_DC_2spk_2lay_reconlyvote/database.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
